@@ -14,24 +14,27 @@ const Heart = ({ id }) => {
     const { user } = useAuth0();
 
     const {
-        userDetails: { favourites },
+        userDetails: { favourites, token },
         setUserDetails,
     } = useContext(UserDetailContext);
+
 
     useEffect(() => {
         setHeartColor(() => checkFavourites(id, favourites))
     }, [favourites])
 
     const { mutate } = useMutation({
-        mutationFn: () => toFav(id, user?.email),
+        mutationFn: () => toFav(id, user?.email, token),
         onSuccess: () => {
             setUserDetails((prev) => (
+                console.log(typeof (prev.favourites)),
                 {
                     ...prev,
                     favourites: updateFavourites(id, prev.favourites)
                 }
+
             ))
-        }
+        },
     })
 
     const handleLike = () => {

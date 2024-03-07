@@ -88,6 +88,11 @@ export const toFav = async (id, email, token) => {
       `/user/toFav/${id}`,
       {
         email,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
   } catch (e) {
@@ -96,22 +101,26 @@ export const toFav = async (id, email, token) => {
 };
 
 
-export const getAllFav = async (email) => {
-  if (!token) return
-  try {
+// export const getAllFav = async (email, token) => {
+//   if (!token) return
+//   try {
 
-    const res = await api.post(
-      `/user/allFav`,
-      {
-        email,
-      },
-    );
+//     const res = await api.post(
+//       `/user/allFav`,
+//       {
+//         email,
+//       },
+//       {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       }
+//     );
+//     return res.data["favResidenciesID"]
 
-    return res.data["favResidenciesID"]
-
-  } catch (e) {
-    toast.error("Something went wrong while fetching favs");
-    throw e
-  }
-}
+//   } catch (e) {
+//     toast.error("Something went wrong while fetching favs");
+//     throw e
+//   }
+// }
 
