@@ -6,7 +6,6 @@ import { PuffLoader } from "react-spinners";
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
-import Map from "../../components/Map/Map";
 import useAuthCheck from "../../hooks/useAuthCheck";
 import { useAuth0 } from "@auth0/auth0-react";
 import BookingModal from "../../components/BookingModal/BookingModal";
@@ -15,6 +14,7 @@ import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
 import Heart from "../../components/Heart/Heart";
 import "./PropertyOne.css";
+import Map from "../../components/Map/Map.jsx";
 
 const PropertyOne = () => {
     const { pathname } = useLocation();
