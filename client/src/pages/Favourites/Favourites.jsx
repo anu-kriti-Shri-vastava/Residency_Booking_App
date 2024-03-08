@@ -3,7 +3,7 @@ import SearchBar from "../../components/searchBar/Searchbar";
 import useProperties from "../../hooks/useProperties";
 import { PuffLoader } from "react-spinners";
 import PropertyCard from "../../components/propertyCard/Propertycard"
-import "../Properties/Property.css";
+import "../properties/Property.css";
 import UserDetailContext from "../../context/UserDetailContext";
 
 const Favourites = () => {
