@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PropertyOne from "./pages/PropertyOne/PropertyOne";
 import UserDetailContext from "./context/UserDetailContext";
 import Bookings from "./pages/Bookings/Bookings";
+import Favourites from "./pages/Favourites/Favourites";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                   <Route path=":propertyId" element={<PropertyOne />} />
                 </Route>
                 <Route path="/bookings" element={<Bookings />} />
+                <Route path="/favourites" element={<Favourites />} />
               </Route>
             </Routes>
           </Suspense>
