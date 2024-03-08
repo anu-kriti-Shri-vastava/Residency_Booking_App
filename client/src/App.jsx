@@ -34,7 +34,7 @@ function App() {
                   <Route index element={<Property />} />
                   <Route path=":propertyId" element={<PropertyOne />} />
                 </Route>
-
+                <Route path="/bookings" element={<Bookings />} />
               </Route>
             </Routes>
           </Suspense>
