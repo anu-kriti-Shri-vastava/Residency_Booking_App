@@ -3,7 +3,7 @@ import { useForm } from "@mantine/form";
 import { validateString } from "../../utils/common";
 import { Button, Group, Select, TextInput } from "@mantine/core";
 import useCountries from "../../hooks/useCountries";
-import Map from "../map/Map";
+import Map from "../Map/Map";
 
 const AddLocation = ({ propertyDetails, setPropertyDetails, nextStep }) => {
     const { getAll } = useCountries();

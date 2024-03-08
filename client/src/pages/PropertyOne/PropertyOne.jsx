@@ -14,7 +14,7 @@ import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
 import Heart from "../../components/Heart/Heart";
 import "./PropertyOne.css";
-import Map from "../../components/map/Map";
+import Map from "../../components/Map/Map";
 
 const PropertyOne = () => {
     const { pathname } = useLocation();
