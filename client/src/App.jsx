@@ -3,7 +3,7 @@ import { Suspense, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Website from "./pages/Website";
 import Layout from "./components/layout/Layout";
-import Property from "./pages/Properties/Property";
+import Property from "./pages/properties/Property";
 import { ReactQueryDevtools } from "react-query/devtools"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
