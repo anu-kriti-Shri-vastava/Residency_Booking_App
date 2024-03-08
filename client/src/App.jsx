@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropertyOne from "./pages/PropertyOne/PropertyOne";
 import UserDetailContext from "./context/UserDetailContext";
+import Bookings from "./pages/Bookings/Bookings";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
                   <Route index element={<Property />} />
                   <Route path=":propertyId" element={<PropertyOne />} />
                 </Route>
+
               </Route>
             </Routes>
           </Suspense>

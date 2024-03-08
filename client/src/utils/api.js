@@ -100,27 +100,21 @@ export const toFav = async (id, email, token) => {
   }
 };
 
-
-// export const getAllFav = async (email, token) => {
-//   if (!token) return
-//   try {
-
-//     const res = await api.post(
-//       `/user/allFav`,
-//       {
-//         email,
-//       },
-//       {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       }
-//     );
-//     return res.data["favResidenciesID"]
-
-//   } catch (e) {
-//     toast.error("Something went wrong while fetching favs");
-//     throw e
-//   }
-// }
-
+export const createResidency = async (data, token) => {
+  console.log(data)
+  try {
+    const res = await api.post(
+      `/residency/create`,
+      {
+        data
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+  } catch (error) {
+    throw error
+  }
+}

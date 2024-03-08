@@ -1,11 +1,10 @@
 import asyncHandler from 'express-async-handler';
-import {prisma} from "../config/prismaConfig.js";
+import { prisma } from "../config/prismaConfig.js";
 
-export const createUser = asyncHandler(async (req,res) => {
-    console.log("creating a user");
+export const createUser = asyncHandler(async (req, res) => {
 
-    let {email} = req.body;
-    const userExists = await prisma.user.findUnique({ where: { email: email } });
+  let { email } = req.body;
+  const userExists = await prisma.user.findUnique({ where: { email: email } });
   if (!userExists) {
     const user = await prisma.user.create({ data: req.body });
     res.send({
@@ -17,42 +16,42 @@ export const createUser = asyncHandler(async (req,res) => {
 
 
 
-export const bookVisit = asyncHandler(async (req,res) => {
-  const {email, date} = req.body;
-  const {id} = req.params;
+export const bookVisit = asyncHandler(async (req, res) => {
+  const { email, date } = req.body;
+  const { id } = req.params;
 
-  try{
+  try {
 
-    const user = await prisma.user.findUnique({ 
-      where: { email},
-      select: {bookedVisits: true}
+    const user = await prisma.user.findUnique({
+      where: { email },
+      select: { bookedVisits: true }
     })
-    
-    if(user.bookedVisits.some((visit) => visit.id === id)) {
-      res.status(400).json({message: "You have already booked this visit"})
+
+    if (user.bookedVisits.some((visit) => visit.id === id)) {
+      res.status(400).json({ message: "You have already booked this visit" })
     }
-    else{
+    else {
       await prisma.user.update({
-        where: {email: email},
-        data: {bookedVisits: {push: {id,date}}}
+        where: { email: email },
+        data: { bookedVisits: { push: { id, date } } }
       })
       res.send("your visit is booked succesfully!")
     }
-  }catch(err){
+  } catch (err) {
     throw new Error(err.message);
   }
 })
 
 
-export const getAllBookings = asyncHandler(async(req,res) =>{
-  const {email} = req.body;
-  try{
-    const bookings = await prisma.user.findUnique({ 
-      where: { email},
-      select: {bookedVisits: true}
+export const getAllBookings = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  try {
+    const bookings = await prisma.user.findUnique({
+      where: { email },
+      select: { bookedVisits: true }
     })
     res.send(bookings)
-  }catch(err){
+  } catch (err) {
     throw new Error(err.message);
   }
 })

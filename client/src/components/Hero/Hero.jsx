@@ -1,7 +1,6 @@
 import "./Hero.css";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import Searchbar from "../searchBar/Searchbar";
 
 const Hero = () => {
   return (
@@ -23,10 +22,9 @@ const Hero = () => {
             </motion.h1>
           </div>
           <div className="flexColStart secondaryText flexhero-des">
-            <span style={{ fontSize: "15px", marginLeft: "6rem", color: "white" }}>Find a variety of properties that suit you very easily. Forget all difficulties in finding a residence for you</span>
+            <span style={{ fontSize: "20px", marginLeft: "-2rem", color: "white", marginTop: "1rem" }}>Find a variety of properties that suit you very easily. Forget all difficulties in finding a residence for you</span>
           </div>
 
-          <Searchbar />
 
           <div className="flexCenter stats">
             <div className="flexColCenter stat">

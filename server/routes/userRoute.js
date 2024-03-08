@@ -1,6 +1,5 @@
 import express from "express";
 import { createUser, bookVisit, getAllBookings, cancelBooking, toFav, getAllFavorites } from "../controllers/userCntrl.js";
-import jwtCheck from "../config/auth0Config.js";
 
 const router = express.Router();
 
